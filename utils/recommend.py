@@ -6,3 +6,5 @@ def recommend(disease):
         "Cold": []
     }
     return data.get(disease, [])
+   # Diagnostic test recommendation logic
+  
