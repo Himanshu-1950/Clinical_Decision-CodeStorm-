@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagnosis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='C:\Users\Dell\Desktop\Clinical_Decision-CodeStorm--main\app\templates\style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>📊 Diagnosis Results</h1>
+
+    <div class="card">
+        <h2>Top Predicted Diseases</h2>
+        <ul class="result-list">
+            {% for r in results %}
+            <li>
+                <strong>{{ r.disease }}</strong>
+                <span>{{ r.probability }}%</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Recommended Diagnostic Tests</h2>
+        {% if tests %}
+        <ul>
+            {% for t in tests %}
+            <li>{{ t }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No immediate tests required.</p>
+        {% endif %}
+    </div>
+
+    <a href="/" class="btn secondary">⬅ Analyze Another Patient</a>
+</div>
+
+</body>
+</html>
